@@ -1,25 +1,29 @@
-// app/actions/checkUser.ts
 "use server";
 
 import { currentUser } from "@clerk/nextjs/server";
-import { db } from "@/lib/db";
+import {db} from "@/lib/db"; // db.ts should export PrismaClient
 
 export async function checkUser() {
   const user = await currentUser();
+  console.log("Clerk currentUser():", user);
+
   if (!user) return null;
 
-  const loggedInUser = await db.user.findUnique({
+  let loggedInUser = await db.user.findUnique({
     where: { clerkUserId: user.id },
   });
 
   if (loggedInUser) return loggedInUser;
 
-  return db.user.create({
+  const newUser = await db.user.create({
     data: {
       clerkUserId: user.id,
-      name: `${user.firstName ?? ""} ${user.lastName ?? ""}`,
+      name: `${user.firstName ?? ""} ${user.lastName ?? ""}`.trim(),
       imageUrl: user.imageUrl,
-      email: user.emailAddresses[0].emailAddress,
+      email: user.primaryEmailAddress?.emailAddress ?? "",
     },
   });
+
+  console.log("New user created:", newUser);
+  return newUser;
 }

@@ -1,8 +1,13 @@
+// app/layout.tsx
 import type { Metadata } from "next";
 import { Roboto, Roboto_Mono as RobotoMono } from "next/font/google";
 import "./globals.css";
 import { ClerkProvider } from "@clerk/nextjs";
 import Header from "./components/Header";
+
+// Import ToastContainer styles
+import { ToastContainer } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 const robotoSans = Roboto({
   variable: "--font-roboto-sans",
@@ -30,7 +35,13 @@ export default function RootLayout({
         <body className={`${robotoSans.variable} ${robotoMono.variable}`}>
           <Header />
           <main className="container">{children}</main>
-        </body>
+
+     {/* Toast notifications */}
+      <ToastContainer
+        position="top-right"
+        autoClose={3000}
+        aria-label="notification"
+      />        </body>
       </html>
     </ClerkProvider>
   );

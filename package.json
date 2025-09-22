@@ -6,7 +6,7 @@
     "dev": "next dev --turbopack",
     "build": "next build --turbopack",
     "start": "next start",
-    "lint":"next lint",
+    "lint": "next lint",
     "postinstall": "prisma generate"
   },
   "dependencies": {
@@ -14,7 +14,8 @@
     "@prisma/client": "^6.16.2",
     "next": "15.5.3",
     "react": "19.1.0",
-    "react-dom": "19.1.0"
+    "react-dom": "19.1.0",
+    "react-toastify": "^11.0.5"
   },
   "devDependencies": {
     "@types/node": "^20",

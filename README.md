@@ -1,6 +1,8 @@
 # Expense Trucker
 
-[![Vercel](https://img.shields.io/badge/deployed-on-vercel-000?style=flat&logo=vercel)](https://expense-trucker-nextjs.vercel.app)
+
+[![GitHub Repo](https://img.shields.io/badge/GitHub-Repo-181717?style=flat&logo=github)](https://github.com/HamdiNur/Expense-trucker)
+[![Vercel](https://img.shields.io/badge/Deployed-on-Vercel-000?style=flat&logo=vercel)](https://expense-trucker-nextjs.vercel.app)
 
 Expense Trucker is a web application built with **Next.js**, **Prisma**, and **Clerk** that allows users to track their expenses and income in real-time. Users can add, delete, and view transactions, calculate balances, and manage budgets with a clean and intuitive interface.
 
